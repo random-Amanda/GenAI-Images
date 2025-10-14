@@ -94,9 +94,13 @@
                         <input type="radio" name="member" id="member1" value="A" required class="mr-1" />
                         A
                     </label>
-                    <label class="inline-flex items-center">
+                    <label class="inline-flex items-center mr-4">
                         <input type="radio" name="member" id="member2" value="B" required class="mr-1" />
                         B
+                    </label>
+                    <label class="inline-flex items-center mr-4">
+                        <input type="radio" name="member" id="member3" value="C" required class="mr-1" />
+                        C
                     </label>
                 </div>
                 <!-- Terms and Conditions Section -->
@@ -222,7 +226,7 @@
                 const res = await fetch("/api/config");
                 const config = await res.json();
                 const start = Number(config.GROUPS_STARTING_ID) || 1;
-                const count = 18;
+                const count = 12;
                 for (let i = start; i < start + count; i++) {
                     const opt = document.createElement("option");
                     opt.value = i;
@@ -231,7 +235,7 @@
                 }
             } catch (err) {
                 // fallback: default groups
-                for (let i = 1; i <= 18; i++) {
+                for (let i = 1; i <= 12; i++) {
                     const opt = document.createElement("option");
                     opt.value = i;
                     opt.textContent = `Group ${i}`;

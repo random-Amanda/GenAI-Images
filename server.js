@@ -121,7 +121,7 @@ app.post("/api/chat", async (req, res) => {
         saveMessage(user.id, message.role, message.content);
 
         // For groups within the specified range, use mock responses
-        if (Number(group) >= GROUPS_STARTING_ID && Number(group) <= (GROUPS_STARTING_ID + 5)) {
+        if (Number(group) >= GROUPS_STARTING_ID && Number(group) <= (GROUPS_STARTING_ID + 3)) {
             const { seen_mock_ids = [] } = req.body;
             const mockResponse = await getNextMockResponse(seen_mock_ids);
             if (!mockResponse) {
