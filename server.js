@@ -43,8 +43,8 @@ async function getNextMockResponse(seenIds = []) {
     // wait for 10 seconds to simulate thinking
     await new Promise(resolve => setTimeout(resolve, 10000));
     const seenSet = new Set(seenIds.map(Number));
-    let nextId = Math.floor(Math.random() * 5) + 1;
-    if (seenSet.size < 5) {
+    let nextId = Math.floor(Math.random() * 50) + 1;
+    if (seenSet.size < 50) {
         nextId = getNextMockResponseId(seenSet);
     }
     const nextResponse = db.prepare("SELECT * FROM mock_responses WHERE id=?").get(nextId);
@@ -54,7 +54,7 @@ async function getNextMockResponse(seenIds = []) {
 function getNextMockResponseId(existingSet) {
     let num;
     do {
-        num = Math.floor(Math.random() * 5) + 1;
+        num = Math.floor(Math.random() * 50) + 1;
     } while (existingSet.has(num));
     return num;
 }
